@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dena — Legal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #06000f;
+    --surface: #0e0520;
+    --border: #2a1050;
+    --purple: #c77dff;
+    --blue: #48cae4;
+    --text: #e8deff;
+    --muted: #8b74b0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* Nav */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0;
+    background: rgba(6,0,15,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--purple); }
+  .logo-gem { font-size: 1.6rem; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; transition: color .2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--purple); }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 72px 24px 40px;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(123,47,247,0.15), transparent);
+  }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; margin-bottom: 12px; }
+  .hero p { color: var(--muted); font-size: 0.95rem; }
+  .updated { display: inline-block; margin-top: 10px; font-size: 0.8rem; color: var(--blue); border: 1px solid rgba(72,202,228,0.3); border-radius: 100px; padding: 3px 14px; }
+
+  /* Tabs */
+  .tabs { display: flex; justify-content: center; gap: 12px; padding: 32px 24px 0; }
+  .tab {
+    padding: 10px 28px; border-radius: 100px; font-size: 0.9rem; cursor: pointer;
+    border: 1px solid var(--border); background: transparent; color: var(--muted);
+    transition: all .25s; font-family: 'DM Sans', sans-serif;
+  }
+  .tab.active { background: var(--purple); color: #fff; border-color: var(--purple); }
+  .tab:hover:not(.active) { border-color: var(--purple); color: var(--purple); }
+
+  /* Content */
+  .content { max-width: 760px; margin: 40px auto 80px; padding: 0 24px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 48px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 36px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2:first-child { margin-top: 0; }
+
+  p { color: var(--text); margin-bottom: 14px; font-size: 0.95rem; }
+  ul { padding-left: 20px; margin-bottom: 14px; }
+  li { color: var(--text); font-size: 0.95rem; margin-bottom: 6px; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .highlight {
+    background: rgba(123,47,247,0.12);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 20px;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span class="logo-gem">💎</span> Dena</div>
+  <div class="nav-links">
+    <a href="#" class="active" onclick="showTab('tos',this)">Terms of Service</a>
+    <a href="#" onclick="showTab('privacy',this)">Privacy Policy</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Legal &amp; Policies</h1>
+  <p>Dena — Strategic Marketing AI Agent</p>
+  <span class="updated">Last updated: March 2026</span>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('tos',this)">Terms of Service</button>
+  <button class="tab" onclick="showTab('privacy',this)">Privacy Policy</button>
+</div>
+
+<div class="content">
+
+  <!-- TERMS OF SERVICE -->
+  <div id="tos" class="section active">
+    <div class="card">
+      <h2>1. Overview</h2>
+      <p>These Terms of Service ("Terms") govern your use of Dena, an AI-powered marketing agent ("Service") operated for internal marketing and advertising management purposes. By accessing or using the Service, you agree to be bound by these Terms.</p>
+
+      <h2>2. Description of Service</h2>
+      <p>Dena is an internal AI agent that integrates with TikTok's Marketing API to retrieve advertising data, analyze campaign performance, and provide strategic marketing insights. The Service is not a public-facing consumer product.</p>
+
+      <h2>3. Acceptable Use</h2>
+      <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You must not:</p>
+      <ul>
+        <li>Use the Service to violate TikTok's Terms of Service or Marketing API policies</li>
+        <li>Attempt to access data or accounts without authorization</li>
+        <li>Use the Service to engage in deceptive, fraudulent, or misleading advertising practices</li>
+        <li>Reverse engineer, copy, or redistribute any component of the Service</li>
+      </ul>
+
+      <h2>4. TikTok API Usage</h2>
+      <p>The Service uses TikTok's Marketing API in compliance with TikTok's Developer Terms of Service. All data retrieved via the API is used solely for authorized advertising management and analytics purposes.</p>
+
+      <div class="highlight">
+        Access to TikTok advertising data is governed by TikTok's own Terms of Service and Privacy Policy. Users are responsible for ensuring their use complies with applicable TikTok policies.
+      </div>
+
+      <h2>5. Limitation of Liability</h2>
+      <p>The Service is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the Service, including any losses related to advertising campaigns or marketing decisions made using data provided by the Service.</p>
+
+      <h2>6. Changes to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. Continued use of the Service after changes constitutes acceptance of the revised Terms.</p>
+
+      <h2>7. Contact</h2>
+      <p>For questions regarding these Terms, please contact the system administrator responsible for Dena's operation.</p>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY -->
+  <div id="privacy" class="section">
+    <div class="card">
+      <h2>1. Introduction</h2>
+      <p>This Privacy Policy explains how Dena ("we," "the Service") collects, uses, and protects information when you use our AI marketing agent. We are committed to handling all data responsibly and in compliance with applicable laws.</p>
+
+      <h2>2. Information We Access</h2>
+      <p>Through TikTok's Marketing API, the Service may access:</p>
+      <ul>
+        <li>TikTok advertising account information and campaign data</li>
+        <li>Ad performance metrics and analytics</li>
+        <li>Creative assets associated with advertising campaigns</li>
+        <li>Audience and targeting data related to ad campaigns</li>
+      </ul>
+
+      <h2>3. How We Use Information</h2>
+      <p>All accessed data is used exclusively to:</p>
+      <ul>
+        <li>Analyze advertising campaign performance</li>
+        <li>Generate marketing insights and recommendations</li>
+        <li>Manage and optimize TikTok ad campaigns on behalf of authorized users</li>
+      </ul>
+
+      <div class="highlight">
+        We do not sell, share, or transfer any advertising data to third parties. All data is used solely for authorized marketing management purposes.
+      </div>
+
+      <h2>4. Data Retention</h2>
+      <p>Campaign analytics and session data may be stored temporarily to provide continuity of service. Data is not retained beyond what is necessary for operational purposes. Users may request deletion of stored session data at any time.</p>
+
+      <h2>5. Data Security</h2>
+      <p>We implement appropriate technical measures to protect data accessed through the Service, including encrypted storage of API credentials and access tokens. We do not log raw API responses beyond what is necessary for debugging and operational purposes.</p>
+
+      <h2>6. Third-Party Services</h2>
+      <p>The Service integrates with TikTok's Marketing API. Data shared with or retrieved from TikTok is subject to <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank">TikTok's Privacy Policy</a>. We are not responsible for TikTok's data practices.</p>
+
+      <h2>7. User Rights</h2>
+      <p>Authorized users of the Service may request access to, correction of, or deletion of any personal data held in connection with their use of the Service. To exercise these rights, contact the system administrator.</p>
+
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page reflects the most recent revision.</p>
+
+      <h2>9. Contact</h2>
+      <p>For privacy-related inquiries, please contact the system administrator responsible for Dena's operation.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  💎 Dena — Strategic Marketing AI &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp;
+  <a href="#" onclick="showTab('tos',document.querySelector('.nav-links a'))">Terms</a> &nbsp;·&nbsp;
+  <a href="#" onclick="showTab('privacy',document.querySelectorAll('.nav-links a')[1])">Privacy</a>
+</footer>
+
+<script>
+function showTab(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (el && el.classList) {
+    if (el.classList.contains('tab')) {
+      document.querySelectorAll('.tab')[id === 'tos' ? 0 : 1].classList.add('active');
+    } else {
+      el.classList.add('active');
+    }
+  }
+}
+</script>
+</body>
+</html>
